@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="regular" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/jost_regular</item>
+        <item name="android:textColor">@color/text_black</item>
+    </style>
+
+    <style name="medium" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/jost_medium</item>
+        <item name="android:textColor">@color/text_black</item>
+    </style>
+
+    <style name="bold" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/jost_bold</item>
+        <item name="android:textColor">@color/text_black</item>
+    </style>
+
+    <style name="black" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/jost_black</item>
+        <item name="android:textColor">@color/text_black</item>
+    </style>
+
+
+</resources>
