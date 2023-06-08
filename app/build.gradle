@@ -9,13 +9,14 @@ android {
 
     defaultConfig {
         applicationId "com.hmwn.plaosanvr"
-        minSdk 21
+        minSdk 26
         targetSdk 33
         versionCode 1
         versionName "1.0"
-        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -34,6 +35,10 @@ android {
 
     buildFeatures {
         viewBinding true
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
     }
 
 }
@@ -62,5 +67,13 @@ dependencies {
     def dealscreen_version = "1.0.6"
     implementation "com.intuit.sdp:sdp-android:$dealscreen_version"
     implementation "com.intuit.ssp:ssp-android:$dealscreen_version"
+
+    // exoplayer
+//    implementation 'com.google.android.exoplayer:exoplayer-core:2.12.0'
+//    implementation 'com.google.android.exoplayer:exoplayer-dash:2.12.0'
+//    implementation 'com.google.android.exoplayer:exoplayer-ui:2.12.0'
+
+    // panoramic
+    implementation 'pl.rjuszczyk:panorama-view:0.0.7'
 
 }
