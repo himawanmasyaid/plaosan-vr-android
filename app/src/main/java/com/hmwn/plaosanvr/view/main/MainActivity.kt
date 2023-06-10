@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hmwn.plaosanvr.R
 import com.hmwn.plaosanvr.common.DirectManager
@@ -13,6 +14,7 @@ import com.hmwn.plaosanvr.databinding.ActivityMainBinding
 import com.hmwn.plaosanvr.view.main.adapter.PanoramicAdapter
 import com.hmwn.plaosanvr.view.main.adapter.VisitAdapter
 import com.hmwn.plaosanvr.view.panoramic.PanoramicActivity
+import com.hmwn.plaosanvr.view.vr.VirtualRealityActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -80,7 +82,7 @@ class MainActivity : AppCompatActivity() {
 
         when (visit.id) {
             VisitId.VIRTUAL_REALITY -> {
-                toast("on progress")
+                startActivity(Intent(this, VirtualRealityActivity::class.java))
             }
             VisitId.NAVIGATE_MAPS -> {
                 gmapsDirectionToPlaosanTemple()
@@ -90,9 +92,16 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun gmapsDirectionToPlaosanTemple(latitude: Double = -7.7406277976550495, longitude: Double = 110.50471676490179) {
-        val direct = DirectManager(this@MainActivity)
-        direct.gmapsDirectionToLocation(latitude, longitude)
+    fun gmapsDirectionToPlaosanTemple(
+        latitude: Double = -7.74083,
+        longitude: Double = 110.50461
+    ) {
+        setLog("gmapsDirectionToPlaosanTemple")
+        DirectManager(this@MainActivity).gmapsOpenDetailLocation(latitude, longitude, "Candi Plaosan")
+    }
+
+    private fun setLog(msg: String) {
+        Log.e("main", msg)
     }
 
 }

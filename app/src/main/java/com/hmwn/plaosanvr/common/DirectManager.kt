@@ -9,21 +9,6 @@ class DirectManager(val context: Context) {
 
     private val GOOGLE_MAPS = "com.google.android.apps.maps"
 
-    fun gmapsDirectionToLocation(latitude: Double, longitude: Double) {
-        if (isApplicationInstalled(GOOGLE_MAPS)) {
-
-            try {
-                val gmapsUri = Uri.parse("google.navigation:q=$latitude, $longitude")
-                val intent = Intent(Intent.ACTION_VIEW, gmapsUri)
-                intent.setPackage(GOOGLE_MAPS)
-                context.startActivity(intent)
-            } catch (error: Exception) {
-                context.toast("Failed")
-            }
-
-        }
-    }
-
     fun isApplicationInstalled(packageName: String): Boolean {
         val pm: PackageManager = context.packageManager
         return try {
@@ -34,6 +19,18 @@ class DirectManager(val context: Context) {
         } catch (error: Exception) {
             false
         }
+    }
+
+    fun gmapsOpenDetailLocation(latitude: Double, longitude: Double, label: String = "") {
+
+            try {
+                val gmapsUri = Uri.parse("geo:$latitude,$longitude?q=${label.replace(" ", "+")}")
+                val intent = Intent(Intent.ACTION_VIEW, gmapsUri)
+                intent.setPackage(GOOGLE_MAPS)
+                context.startActivity(intent)
+            } catch (error: Exception) {
+                context.toast("Gagal : ${error.message}")
+            }
     }
 
 }
