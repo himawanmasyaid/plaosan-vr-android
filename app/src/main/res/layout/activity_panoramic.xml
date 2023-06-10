@@ -13,7 +13,7 @@
         />
 
     <ImageButton
-        android:id="@+id/closeBtn"
+        android:id="@+id/btnClose"
         android:layout_width="@dimen/_26sdp"
         android:layout_height="@dimen/_26sdp"
         android:layout_margin="@dimen/_10sdp"

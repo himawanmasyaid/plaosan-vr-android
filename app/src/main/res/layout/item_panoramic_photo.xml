@@ -5,12 +5,11 @@
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="@dimen/_128sdp"
-        android:layout_height="@dimen/_170sdp"
-        app:cardBackgroundColor="@color/grey"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_150sdp"
         android:layout_margin="@dimen/_8sdp"
-        app:cardCornerRadius="@dimen/_1sdp"
-        app:cardElevation="@dimen/_8sdp"
+        app:cardCornerRadius="@dimen/_5sdp"
+        app:cardElevation="@dimen/_2sdp"
         >
 
         <RelativeLayout
@@ -18,6 +17,7 @@
             android:layout_height="match_parent">
 
             <ImageView
+                android:id="@+id/ivBackground"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
@@ -25,15 +25,14 @@
 
             <TextView
                 android:id="@+id/tvName"
-                style="@style/black"
+                style="@style/medium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/ivIcon"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="@dimen/_8sdp"
                 android:text="Lorem Ipsum"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_14ssp" />
+                android:textSize="@dimen/_12ssp" />
 
             <ImageView
                 android:id="@+id/ivIcon"
