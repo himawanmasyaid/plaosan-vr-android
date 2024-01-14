@@ -14,6 +14,7 @@ import com.hmwn.plaosanvr.databinding.ActivityMainBinding
 import com.hmwn.plaosanvr.view.main.adapter.PanoramicAdapter
 import com.hmwn.plaosanvr.view.main.adapter.VisitAdapter
 import com.hmwn.plaosanvr.view.panoramic.PanoramicActivity
+import com.hmwn.plaosanvr.view.virtualtour.VirtualTourActivity
 import com.hmwn.plaosanvr.view.vr.VirtualRealityActivity
 
 class MainActivity : AppCompatActivity() {
@@ -82,7 +83,7 @@ class MainActivity : AppCompatActivity() {
 
         when (visit.id) {
             VisitId.VIRTUAL_REALITY -> {
-                startActivity(Intent(this, VirtualRealityActivity::class.java))
+                startActivity(Intent(this, VirtualTourActivity::class.java))
             }
             VisitId.NAVIGATE_MAPS -> {
                 gmapsDirectionToPlaosanTemple()

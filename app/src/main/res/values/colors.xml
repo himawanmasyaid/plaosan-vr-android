@@ -12,5 +12,8 @@
     <color name="dark_green">#183A1D</color>
     <color name="soft_green">#E1EEDD</color>
     <color name="grey">#D9D9D9</color>
+    <color name="buttery_white">#fefbea</color>
+
+    <color name="background_main">@color/white</color>
 
 </resources>

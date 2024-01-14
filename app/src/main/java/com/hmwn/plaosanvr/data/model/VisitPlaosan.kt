@@ -5,7 +5,7 @@ import com.hmwn.plaosanvr.R
 data class VisitPlaosan(
     val id : Int,
     val name: String,
-    val icon: Int
+    val icon: Int,
 )
 
 object VisitId {
@@ -18,12 +18,12 @@ fun getVisitPlaosan(): List<VisitPlaosan> {
         VisitPlaosan(
             id = VisitId.VIRTUAL_REALITY,
             name = "Tour Virtual Reality",
-            icon = R.drawable.img_plaosan
+            icon = R.drawable.img_plaosan,
         ),
         VisitPlaosan(
             id = VisitId.NAVIGATE_MAPS,
             name = "Navigate to Plaosan Temple",
-            icon = R.drawable.img_compas
+            icon = R.drawable.img_compas,
         )
     )
 }

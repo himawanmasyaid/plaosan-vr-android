@@ -1,6 +1,7 @@
 package com.hmwn.plaosanvr.view.vr
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.net.Uri
 import android.os.Build
@@ -21,6 +22,8 @@ import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import com.hmwn.plaosanvr.databinding.ActivityVirtualRealityBinding
 import com.google.android.exoplayer2.upstream.DataSource
 import com.google.android.exoplayer2.upstream.DataSource.Factory
+import com.hmwn.plaosanvr.data.model.VirtualTour
+import com.hmwn.plaosanvr.view.panoramic.PanoramicActivity
 
 class VirtualRealityActivity : AppCompatActivity() {
 
@@ -30,8 +33,10 @@ class VirtualRealityActivity : AppCompatActivity() {
     private var playWhenReady: Boolean = true
     private var currentWindows = 0
     private var playBackPostion: Long = 0
-    private val ASSETS = "assets"
 
+    companion object {
+        const val VR_URL = "vr_url_arg"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,17 +66,23 @@ class VirtualRealityActivity : AppCompatActivity() {
 
         videoPlayer = SimpleExoPlayer.Builder(this).build()
 
-//        playStreamVideo() // its work
+        val vrUrl = intent.getStringExtra(VR_URL) ?: ""
 
-        playAssetsVideo("congo-gorilla-vr.mp4")
+        if (vrUrl.isEmpty()) {
+            binding.tvNotAvailable.visibility
+        } else {
+            playStreamVideo(vrUrl)
+        }
+
+//        playAssetsVideo("congo-gorilla-vr.mp4")
 
     }
 
-    private fun playStreamVideo() {
+    private fun playStreamVideo(vrUrl: String) {
 
-        val url = "https://storage.googleapis.com/exoplayer-test-media-1/360/congo.mp4"
+//        val url = "https://storage.googleapis.com/exoplayer-test-media-1/360/congo.mp4"
 
-        val uri = Uri.parse(url)
+        val uri = Uri.parse(vrUrl)
         val mediaSource = buildMediaSource(uri)
         videoPlayer?.prepare(mediaSource)
 
