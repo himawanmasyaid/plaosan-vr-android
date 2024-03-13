@@ -15,5 +15,6 @@
     <color name="buttery_white">#fefbea</color>
 
     <color name="background_main">@color/white</color>
+    <color name="light_gray">#DCDCDC</color>
 
 </resources>
