@@ -80,7 +80,7 @@
                 android:textSize="@dimen/_18ssp" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvVisit"
+                android:id="@+id/rvVirtualTour"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_16sdp"

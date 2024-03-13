@@ -15,14 +15,16 @@ import com.hmwn.plaosanvr.view.main.adapter.PanoramicAdapter
 import com.hmwn.plaosanvr.view.main.adapter.VisitAdapter
 import com.hmwn.plaosanvr.view.panoramic.PanoramicActivity
 import com.hmwn.plaosanvr.view.virtualtour.VirtualTourActivity
+import com.hmwn.plaosanvr.view.virtualtour.VirtualTourAdapter
 import com.hmwn.plaosanvr.view.vr.VirtualRealityActivity
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private val visitAdapter by lazy {
-        VisitAdapter(
-            ::onVisitListener
+
+    private val virtualTourAdapter by lazy {
+        VirtualTourAdapter(
+            ::onVirtualTourListener
         )
     }
 
@@ -40,7 +42,7 @@ class MainActivity : AppCompatActivity() {
 
         initView()
         panoramaAdapter.resetData(getPanoramicPhotos())
-        visitAdapter.resetData(getVisitPlaosan())
+        virtualTourAdapter.resetData(getPlaosanVirtualTour())
 
     }
 
@@ -59,8 +61,8 @@ class MainActivity : AppCompatActivity() {
             }
 
             // setup visit adapter
-            rvVisit.apply {
-                adapter = visitAdapter
+            rvVirtualTour.apply {
+                adapter = virtualTourAdapter
                 apply {
                     isNestedScrollingEnabled = false
                     layoutManager =
@@ -76,6 +78,12 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, PanoramicActivity::class.java)
         intent.putExtra(PanoramicActivity.PHOTO_NAME_ARG, panoramic.name)
         intent.putExtra(PanoramicActivity.FILE_NAME_ARG, panoramic.file_name)
+        startActivity(intent)
+    }
+
+    private fun onVirtualTourListener(vr: VirtualTour) {
+        val intent = Intent(this, VirtualRealityActivity::class.java)
+        intent.putExtra(VirtualRealityActivity.VR_URL, vr.vr_url)
         startActivity(intent)
     }
 
@@ -97,12 +105,7 @@ class MainActivity : AppCompatActivity() {
         latitude: Double = -7.74083,
         longitude: Double = 110.50461
     ) {
-        setLog("gmapsDirectionToPlaosanTemple")
         DirectManager(this@MainActivity).gmapsOpenDetailLocation(latitude, longitude, "Candi Plaosan")
-    }
-
-    private fun setLog(msg: String) {
-        Log.e("main", msg)
     }
 
 }

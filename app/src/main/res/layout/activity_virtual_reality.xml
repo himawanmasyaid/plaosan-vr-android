@@ -27,4 +27,14 @@
         android:visibility="gone"
         />
 
+    <ImageView
+        android:id="@+id/ivClose"
+        android:layout_width="@dimen/_22sdp"
+        android:layout_height="@dimen/_22sdp"
+        android:layout_margin="@dimen/_8sdp"
+        android:src="@drawable/ic_close_filled"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

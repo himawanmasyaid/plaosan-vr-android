@@ -11,16 +11,19 @@ data class Panoramic(
 fun getPanoramicPhotos(): List<Panoramic> {
     return listOf(
         Panoramic(
-            "Pintu Gerbang",
-            "nat_callaghan.jpeg"
+            "Plaosan Lor",
+            "plaosan_lor_bagian_depan.jpg",
+            R.drawable.img_plaosan_lor
         ),
         Panoramic(
-            "Candi Utama",
-            "nat_callaghan"
+            "Plaosan Kidul",
+            "plaosan_kidul.jpg",
+            R.drawable.img_plaosan_kidul
         ),
         Panoramic(
-            "Pintu Keluar",
-            ""
+            "Stupa Plaosan Lor",
+            "stupa_plaosan_lor.jpg",
+            R.drawable.img_stupa_plaosan
         ),
     )
 }

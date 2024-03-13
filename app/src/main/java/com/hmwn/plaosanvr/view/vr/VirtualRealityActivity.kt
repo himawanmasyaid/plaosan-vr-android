@@ -45,6 +45,7 @@ class VirtualRealityActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initView()
+        initListener()
 
     }
 
@@ -60,6 +61,16 @@ class VirtualRealityActivity : AppCompatActivity() {
         (binding.playerView.videoSurfaceView as SphericalGLSurfaceView)
             .setDefaultStereoMode(C.STEREO_MODE_TOP_BOTTOM)
 
+    }
+
+    private fun initListener() {
+        with(binding) {
+
+            ivClose.setOnClickListener {
+                finish()
+            }
+
+        }
     }
 
     private fun initializePlayer() {

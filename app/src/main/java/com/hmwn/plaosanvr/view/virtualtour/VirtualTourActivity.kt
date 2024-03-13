@@ -53,7 +53,6 @@ class VirtualTourActivity : AppCompatActivity() {
 
         }
 
-
     }
 
     private fun onVirtualTourListener(vr: VirtualTour) {
