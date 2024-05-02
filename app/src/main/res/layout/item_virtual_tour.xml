@@ -3,16 +3,21 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginStart="@dimen/_16sdp"
-    android:layout_marginEnd="@dimen/_16sdp"
+    android:layout_marginStart="@dimen/_14sdp"
+    android:layout_marginEnd="@dimen/_14sdp"
+    android:layout_marginTop="@dimen/_8sdp"
+    android:layout_marginBottom="@dimen/_8sdp"
+    android:background="@drawable/outline_light_gray"
+    android:padding="@dimen/_8sdp"
     >
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/ivIcon"
+        app:layout_constraintStart_toEndOf="@id/ivIcon"
+        android:layout_marginStart="@dimen/_12ssp"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="@dimen/_8sdp"
         app:layout_constraintTop_toTopOf="@id/ivIcon"
         app:layout_constraintBottom_toBottomOf="@id/ivIcon"
@@ -20,13 +25,13 @@
 
         <TextView
             android:id="@+id/tvTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/tour_vr"
             android:maxLines="2"
             android:layout_toEndOf="@+id/ivIcon"
             style="@style/bold"
-            android:textSize="@dimen/_16ssp"
+            android:textSize="@dimen/_14ssp"
             />
 
         <ImageView
@@ -43,13 +48,11 @@
     
     <ImageView
         android:id="@+id/ivIcon"
-        android:layout_width="@dimen/_100sdp"
-        android:layout_height="@dimen/_100sdp"
-        android:src="@drawable/img_plaosan"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_80sdp"
+        android:background="@color/light_gray"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="@dimen/_8sdp"
-        android:layout_marginBottom="@dimen/_8sdp"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

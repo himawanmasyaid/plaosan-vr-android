@@ -9,6 +9,30 @@
     android:background="@color/background_main"
     >
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="4dp"
+        >
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                style="@style/regular"
+                android:textSize="16sp"
+                />
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -26,28 +50,12 @@
                 android:orientation="vertical">
 
                 <TextView
-                    style="@style/black"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_24sdp"
-                    android:text="@string/plaosan_virtual_tour"
-                    android:textSize="@dimen/_20ssp" />
-
-                <TextView
-                    style="@style/regular"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:text="@string/plaosan_virtual_tour_description"
-                    android:textSize="@dimen/_12ssp" />
-
-                <TextView
                     style="@style/bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_25sdp"
                     android:text="@string/panoramic_photos"
-                    android:textSize="@dimen/_16ssp" />
+                    android:textSize="@dimen/_18ssp" />
 
             </LinearLayout>
 
@@ -55,7 +63,7 @@
                 android:id="@+id/rvPanoramicPhotos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_14sdp"
                 android:orientation="horizontal"
                 tools:itemCount="3"
                 tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -66,20 +74,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_16sdp"
-                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_14sdp"
                 android:layout_marginEnd="@dimen/_16sdp"
                 android:text="@string/visit_plaosan_temple"
-                android:textSize="@dimen/_16ssp" />
+                android:textSize="@dimen/_18ssp" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvVisit"
+                android:id="@+id/rvVirtualTour"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_16sdp"
                 android:orientation="horizontal"
                 tools:itemCount="3"
                 tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/item_visit" />
+                tools:listitem="@layout/item_virtual_tour" />
 
         </LinearLayout>
 
