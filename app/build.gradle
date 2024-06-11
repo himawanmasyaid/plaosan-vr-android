@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace 'com.hmwn.plaosanvr'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.hmwn.plaosanvr"
         minSdk 26
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -45,33 +45,32 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.9.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation ("androidx.core:core-ktx:1.12.1")
+    implementation ("androidx.appcompat:appcompat:1.6.1")
+    implementation ("com.google.android.material:material:1.11.0")
+    implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation ("androidx.activity:activity:1.9.0")
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-c ore:3.5.1'
 
     // arch component
-    def arch_lifecycle_version = '2.4.1'
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$arch_lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$arch_lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$arch_lifecycle_version"
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.4.1")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1")
+    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
 
     // coroutines
-    def coroutinesVersion = '1.6.4'
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
     // deal screen
     def dealscreen_version = "1.0.6"
-    implementation "com.intuit.sdp:sdp-android:$dealscreen_version"
-    implementation "com.intuit.ssp:ssp-android:$dealscreen_version"
+    implementation "com.intuit.sdp:sdp-android:1.0.6"
+    implementation "com.intuit.ssp:ssp-android:1.0.6"
 
     // exoplayer
-    implementation 'com.google.android.exoplayer:exoplayer-core:2.12.0'
-    implementation 'com.google.android.exoplayer:exoplayer-dash:2.12.0'
-    implementation 'com.google.android.exoplayer:exoplayer-ui:2.12.0'
+    implementation "com.google.android.exoplayer:exoplayer-core:2.12.0"
+    implementation "com.google.android.exoplayer:exoplayer-dash:2.12.0"
+    implementation "com.google.android.exoplayer:exoplayer-ui:2.12.0"
 
     // panoramic
     implementation 'pl.rjuszczyk:panorama-view:0.0.7'
