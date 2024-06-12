@@ -22,7 +22,6 @@ class PanoramicActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityPanoramicBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -100,10 +99,6 @@ class PanoramicActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         binding.panoramaView.destroyDrawingCache()
-    }
-
-    private fun setLog(msg: String) {
-        Log.e("panorama", msg)
     }
 
 }

@@ -36,7 +36,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -85,27 +84,6 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, VirtualRealityActivity::class.java)
         intent.putExtra(VirtualRealityActivity.VR_URL, vr.vr_url)
         startActivity(intent)
-    }
-
-    private fun onVisitListener(visit: VisitPlaosan) {
-
-        when (visit.id) {
-            VisitId.VIRTUAL_REALITY -> {
-                startActivity(Intent(this, VirtualTourActivity::class.java))
-            }
-            VisitId.NAVIGATE_MAPS -> {
-                gmapsDirectionToPlaosanTemple()
-            }
-            else -> {}
-        }
-
-    }
-
-    fun gmapsDirectionToPlaosanTemple(
-        latitude: Double = -7.74083,
-        longitude: Double = 110.50461
-    ) {
-        DirectManager(this@MainActivity).gmapsOpenDetailLocation(latitude, longitude, "Candi Plaosan")
     }
 
 }
