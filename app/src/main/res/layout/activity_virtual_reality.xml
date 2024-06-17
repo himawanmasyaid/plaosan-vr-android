@@ -23,7 +23,7 @@
         android:text="Virtual Reality Not Available"
         style="@style/bold"
         android:textSize="@dimen/_14ssp"
-        android:textColor="@color/grey"
+        android:textColor="@color/black"
         android:visibility="gone"
         />
 

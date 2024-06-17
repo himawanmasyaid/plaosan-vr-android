@@ -34,6 +34,8 @@ class VirtualRealityActivity : AppCompatActivity() {
     private var currentWindows = 0
     private var playBackPostion: Long = 0
 
+    private var vrUrl : String = ""
+
     companion object {
         const val VR_URL = "vr_url_arg"
     }
@@ -44,9 +46,14 @@ class VirtualRealityActivity : AppCompatActivity() {
         binding = ActivityVirtualRealityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        getIntentData()
         initView()
         initListener()
 
+    }
+
+    private fun getIntentData() {
+        vrUrl = intent.getStringExtra(VR_URL) ?: ""
     }
 
     private fun initView() {
@@ -77,21 +84,18 @@ class VirtualRealityActivity : AppCompatActivity() {
 
         videoPlayer = SimpleExoPlayer.Builder(this).build()
 
-        val vrUrl = intent.getStringExtra(VR_URL) ?: ""
-
         if (vrUrl.isEmpty()) {
             binding.tvNotAvailable.visibility
         } else {
+            // online
             playStreamVideo(vrUrl)
+            // offline
+//            playAssetsVideo()
         }
-
-//        playAssetsVideo("congo-gorilla-vr.mp4")
 
     }
 
     private fun playStreamVideo(vrUrl: String) {
-
-//        val url = "https://storage.googleapis.com/exoplayer-test-media-1/360/congo.mp4"
 
         val uri = Uri.parse(vrUrl)
         val mediaSource = buildMediaSource(uri)
@@ -103,6 +107,8 @@ class VirtualRealityActivity : AppCompatActivity() {
     }
 
     private fun playAssetsVideo(fileName: String = "congo-gorilla-vr.mp4") {
+
+        // offline
 
         val dataSourceFactory: DataSource.Factory = object : Factory
         {
@@ -122,6 +128,7 @@ class VirtualRealityActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         if (isSupportedMultiWindow()) {
+            getIntentData()
             initializePlayer()
         }
     }
@@ -130,6 +137,7 @@ class VirtualRealityActivity : AppCompatActivity() {
         super.onResume()
         hideSystemUi()
         if ((isSupportedMultiWindow() || videoPlayer == null)) {
+            getIntentData()
             initializePlayer()
         }
     }
@@ -175,10 +183,6 @@ class VirtualRealityActivity : AppCompatActivity() {
                 or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                 or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                 or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION)
-    }
-
-    private fun setLog(msg: String) {
-        Log.e("vr", msg)
     }
 
 }
